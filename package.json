@@ -1,0 +1,20 @@
+{
+  "name": "api-smart-games",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "API for SPA/App Smart-Games",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index",
+    "dev": "nodemon index"
+  },
+  "keywords": [],
+  "author": "Rfs",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mongoose": "^8.2.3",
+    "nodemon": "^3.1.0"
+  }
+}
