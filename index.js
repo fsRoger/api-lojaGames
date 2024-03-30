@@ -1,16 +1,20 @@
 import express from "express";
 import connetcDatabase from "./src/database/db.js";
-import searchRoute from "./src/routes/search.route.js";
-
+import cors from "cors";
 import dotenv from "dotenv"
-dotenv.config()
+
+import productRoute from "./src/routes/product.route.js";
+
 
 const app = express();
-const port = 3000;
+dotenv.config()
+app.use(cors());
+
+const port = process.env.PORT || 3000;
 
 connetcDatabase()
 app.use(express.json());
-app.use("/search", searchRoute);
+app.use("/product", productRoute);
 
 
 
