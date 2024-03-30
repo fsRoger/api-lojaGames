@@ -5,7 +5,6 @@ const router = express.Router()
 
 //route.get("/", searchController.search)
 
-//route.post("/", userController.create);
 router.get("/", findAll);
 router.get("/search", searchByTitle);
 

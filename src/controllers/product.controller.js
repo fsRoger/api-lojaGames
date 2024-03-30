@@ -1,6 +1,5 @@
 import { findAllService, findByIdService, searchByTitleService } from "../services/product.service.js";
 
-
 export const findAll = async (req, res) => {
   const product = await findAllService();
 
@@ -12,15 +11,11 @@ export const findAll = async (req, res) => {
 
 };
 
-
 export const findById = async (req, res) => {
   try {
     const { id } = req.params;
 
     const product = await findByIdService(id);
-
-    console.log("backkkkkkkkkkkkkkkkkk", id)
-    console.log("product image", product.linkImagem)
 
     if (!product) {
       return res.status(400).send({ message: "product not found" })
@@ -42,7 +37,6 @@ export const findById = async (req, res) => {
     res.status(500).send({ message: err.message });
   }
 }
-
 
 export const searchByTitle = async (req, res) => {
   try {
