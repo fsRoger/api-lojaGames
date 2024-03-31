@@ -8,11 +8,13 @@ import purchaseRoute from "./src/routes/purchase.route.js";
 
 const app = express();
 dotenv.config()
-app.use(cors());
+// app.use(cors());
+app.use(cors({ origin: '*' }));
 
 const port = process.env.PORT || 3000;
 
-connetcDatabase()
+connetcDatabase();
+
 app.use(express.json());
 app.use("/product", productRoute);
 app.use("/purchase", purchaseRoute);

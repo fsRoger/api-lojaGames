@@ -1,6 +1,8 @@
 import { findAllService, findByIdService, searchByTitleService } from "../services/product.service.js";
 
 export const findAll = async (req, res) => {
+
+  console.log("bateu na api")
   const product = await findAllService();
 
   if (product.length === 0) {

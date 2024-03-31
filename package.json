@@ -4,9 +4,13 @@
   "type": "module",
   "description": "API for SPA/App Smart-Games",
   "main": "index.js",
+  "engines":{
+    "node":"22.0.0"
+  },
   "scripts": {
     "start": "node index",
-    "dev": "nodemon index"
+    "dev": "nodemon index",
+    "build":"tsup src"
   },
   "keywords": [],
   "author": "Rfs",
