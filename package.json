@@ -5,11 +5,12 @@
   "description": "API for SPA/App Smart-Games",
   "main": "index.js",
   "engines":{
-    "node":"22.0.0"
+    "node":"18.0.0"
   },
   "scripts": {
     "start": "node index",
-    "dev": "nodemon index"
+    "dev": "nodemon index",
+    "build":"npm run build"
   },
   "keywords": [],
   "author": "Rfs",
