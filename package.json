@@ -9,8 +9,7 @@
   },
   "scripts": {
     "start": "node index",
-    "dev": "nodemon index",
-    "build":"tsup src"
+    "dev": "nodemon index"
   },
   "keywords": [],
   "author": "Rfs",
