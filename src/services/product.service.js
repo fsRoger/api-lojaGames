@@ -4,8 +4,16 @@ export const findAllService = () => Product.find();
 
 export const findByIdService = (id) => Product.findById(id);
 
-export const searchByTitleService = (title) => Product.find({
-  title: { $regex: `${title || ''}`, $options: 'i' },
-})
-  .sort({ _id: -1 })
+export const findByTitleService = async (title) => {
+  try {
+    let products = await Product.find({
+      nome: title
+    }).sort({ _id: -1 });
+
+    return products[0];
+
+  } catch (error) {
+    throw new Error("Falha ao buscar o produto.");
+  }
+};
 

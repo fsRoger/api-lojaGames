@@ -1,11 +1,11 @@
-import { findAllService, findByIdService, searchByTitleService } from "../services/product.service.js";
+import { findAllService, findByIdService, findByTitleService } from "../services/product.service.js";
 
 export const findAll = async (req, res) => {
 
   const product = await findAllService();
 
   if (product.length === 0) {
-    return res.status(400).send({ message: "There are no available Games" });
+    return res.status(404).send({ message: "Nenhum produto encontrado" });
   }
 
   res.send(product)
@@ -19,9 +19,9 @@ export const findById = async (req, res) => {
     const product = await findByIdService(id);
 
     if (!product) {
-      return res.status(400).send({ message: "product not found" })
+      return res.status(404).send({ message: "Produto não encontrado." })
     }
-    console.log(product)
+
     return res.send({
 
       product: {
@@ -39,16 +39,16 @@ export const findById = async (req, res) => {
   }
 }
 
-export const searchByTitle = async (req, res) => {
+export const findByTitle = async (req, res) => {
   try {
-    const { title } = req.query;
+    const { title } = req.params;
 
-    const product = await searchByTitleService(title);
+    const product = await findByTitleService(title);
 
     if (product.length === 0) {
       return res
-        .status(400)
-        .send({ message: "Não foram encontrados jogos com esse nome" });
+        .status(404)
+        .send({ message: "  Nenhum produto encontrado com esse título" });
     }
 
     return res.send({

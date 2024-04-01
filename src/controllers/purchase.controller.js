@@ -1,18 +1,25 @@
 import { createService } from "../services/purchase.service.js";
 
 export const create = async (req, res) => {
-
   try {
     const { produtoId, nome, endereco, telefone, documento } = req.body;
 
-    if (!produtoId || !nome || !endereco || !telefone || !documento) {
-      res.send({ mensagem: "Todos os campos são obrigatórios" });
+    const purchaseData = {
+      produtoId,
+      nome,
+      endereco,
+      telefone,
+      documento
     }
 
-    const purchase = await createService(req.body);
+    if (!validateFields(purchaseData)) {
+      res.status(400).send({ mensagem: "Todos os campos são obrigatórios." });
+    }
+
+    const purchase = await createService(purchaseData);
 
     if (!purchase) {
-      res.send({ mensagem: "Compra não efetuada" });
+      res.status(500).send({ mensagem: "Compra não efetuada" });
     }
 
     res.status(201).send({
@@ -29,4 +36,10 @@ export const create = async (req, res) => {
   } catch (err) {
     res.status(500).send({ message: err.message })
   }
+};
+
+const validateFields = (purchaseData) => {
+  if (!purchaseData.produtoId || !purchaseData.nome || !purchaseData.endereco || !purchaseData.telefone || !purchaseData.documento)
+    return false;
+  return true;
 };

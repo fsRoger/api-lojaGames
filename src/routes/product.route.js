@@ -1,9 +1,11 @@
 import express from "express";
-import { findAll, findById, searchByTitle } from "../controllers/product.controller.js";
+import { findAll, findById, findByTitle } from "../controllers/product.controller.js";
 
-const router = express.Router()
+const productRouter = express.Router();
 
-router.get("/", findAll);
+productRouter.get("/product/", findAll);
 
-router.get("/:id", findById);
-export default router;
+productRouter.get("/product/:id", findById);
+
+productRouter.get("/product/title/:title", findByTitle);
+export default productRouter;
