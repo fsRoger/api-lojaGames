@@ -3,11 +3,7 @@ import { findAll, findById, searchByTitle } from "../controllers/product.control
 
 const router = express.Router()
 
-//route.get("/", searchController.search)
-
 router.get("/", findAll);
-
-//router.get("/search", searchByTitle);
 
 router.get("/:id", findById);
 export default router;

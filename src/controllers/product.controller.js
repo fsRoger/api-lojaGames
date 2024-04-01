@@ -2,7 +2,6 @@ import { findAllService, findByIdService, searchByTitleService } from "../servic
 
 export const findAll = async (req, res) => {
 
-  console.log("bateu na api")
   const product = await findAllService();
 
   if (product.length === 0) {
@@ -49,7 +48,7 @@ export const searchByTitle = async (req, res) => {
     if (product.length === 0) {
       return res
         .status(400)
-        .send({ message: "There are no new with this title" });
+        .send({ message: "Não foram encontrados jogos com esse nome" });
     }
 
     return res.send({
