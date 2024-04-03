@@ -7,9 +7,7 @@ export const findAll = async (req, res) => {
   if (product.length === 0) {
     return res.status(404).send({ message: "Nenhum produto encontrado" });
   }
-
   res.send(product)
-
 };
 
 export const findById = async (req, res) => {
